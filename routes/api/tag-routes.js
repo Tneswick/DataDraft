@@ -25,7 +25,10 @@ router.get('/:id', (req, res) => {
     where: {
       id: req.params.id
     },
-    include: [Product]
+    include: {
+      model: Product,
+      as: 'product_tags'
+    }
   }).then(dbData => {
     if(!dbData) {
       res.status(404).json({ message: 'No tag found with this id'})
@@ -52,11 +55,14 @@ router.post('/', (req, res) => {
 
 router.put('/:id', (req, res) => {
   // update a tag's name by its `id` value
-  Tag.update({
-    where: {
-      id: req.params.id
-    }
-  }).then(dbData => {
+  Tag.update(
+    { tag_name: req.body.tag_name },
+    {
+      where: {
+        id: req.params.id
+      }
+    })
+  .then(dbData => {
     if(!dbData) {
       res.status(404).json({ message: 'No tag found with this id'})
       return;
