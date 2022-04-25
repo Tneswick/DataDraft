@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
   Tag.findAll({
     include: {
       model: Product,
-      attributes: ['id', 'product_name', 'price', 'stock']
+      as: 'product_tags'
     }
   }).then(dbData => res.json(dbData))
   .catch(err => {
@@ -25,10 +25,7 @@ router.get('/:id', (req, res) => {
     where: {
       id: req.params.id
     },
-    include: {
-      model: Product,
-      attributes: ['id', 'product_name', 'price', 'stock']
-    }
+    include: [Product]
   }).then(dbData => {
     if(!dbData) {
       res.status(404).json({ message: 'No tag found with this id'})
