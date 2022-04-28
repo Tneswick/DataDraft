@@ -9,8 +9,13 @@
 2. Install [MySQL](https://www.mysql.com/) on your local machine.
 3. Clone this repository into your own machine and navigate to the root folder of DataDraft. 
 4. Open up a terminal in this location and run "npm i" in the command line to install all dependencies.
+5. Be sure to change the USER and PW to your MySQL username and password that is set while installing MySQL on your machine.
+<br>
 
-Follow [this video](https://drive.google.com/file/d/1O-w63rMYWP2ajUgVfvPX-baANoaHACzZ/view) to complete the installation and also see the use of the app.
+**ALSO BE SURE TO CHANGE THE FILE NAME FROM .env.EXAMPLE to just .env**
+<br>
+
+***Follow [this video](https://drive.google.com/file/d/1O-w63rMYWP2ajUgVfvPX-baANoaHACzZ/view) to complete the installation and also see the use of the app.***
 
 ## 🔨 Built With
 - JavaScript
